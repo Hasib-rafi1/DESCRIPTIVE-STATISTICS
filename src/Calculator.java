@@ -81,7 +81,7 @@ public class Calculator {
 		String fullText ="";
 	   while ((line = input.readLine()) != null) 
 		{
-		   fullText = fullText+line;
+		   fullText = fullText+line+"/n";
 		   String[] arrOfStr = line.split(",");
 			for (String a : arrOfStr) {
 				randomNumbers.add(Double.valueOf(a));
