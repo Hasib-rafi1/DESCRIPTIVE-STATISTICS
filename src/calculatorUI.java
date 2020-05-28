@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
 
 public class calculatorUI implements ActionListener {
 
+	// Initializing the GUI variables
 	private final JFrame frame;
 	private final JPanel panel;
 	private final JPanel buttonPanel;
@@ -32,8 +33,11 @@ public class calculatorUI implements ActionListener {
 	private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
 			"7", "8", "9"};
 
+	/*
+	 * This function is Building the UI of the application
+	 */
 	public calculatorUI() {
-		frame = new JFrame("Special Calculator");
+		frame = new JFrame("DESCRIPTIVE-STATISTICS");
 		frame.setResizable(false);
 		panel = new JPanel(new GridLayout(2,0));
 		display = new JPanel(new GridLayout(4,0));
@@ -65,6 +69,9 @@ public class calculatorUI implements ActionListener {
 		calc = new Calculator();
 	}
 
+	/*
+	 * This function is crating the block of the UI and setting them into the place. 
+	 */
 	public void init() {
 		frame.setVisible(true);
 		frame.setSize(1000, 1000);
@@ -124,10 +131,17 @@ public class calculatorUI implements ActionListener {
 		butStdDaviation.addActionListener(this);
 
 	}
+	
+	/*
+	 * This function disabled the buttons which are dependent on the different button. 
+	 */
 	public void initial() {
 		butComma.setEnabled(false);
 		butLoad.setEnabled(false);
 	}
+	/*
+	 * This function activated disable buttons based on different conditions from diffrent places 
+	 */
 	public void activeBtn() {
 		btnMad.setEnabled(true);
 		butStdDaviation.setEnabled(true);
@@ -138,6 +152,9 @@ public class calculatorUI implements ActionListener {
 		butMidian.setEnabled(true);
 	}
 
+	/*
+	 * This function disabled the activated buttons based on different conditions from diffrent places 
+	 */
 	public void disableBtn() {
 		btnMad.setEnabled(false);
 		butStdDaviation.setEnabled(false);
@@ -148,6 +165,11 @@ public class calculatorUI implements ActionListener {
 		butMidian.setEnabled(false);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 * This function is handling the events of the buttons and text area. 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		final Object source = e.getSource();
@@ -254,11 +276,17 @@ public class calculatorUI implements ActionListener {
 		text.selectAll();
 	}
 
+	/*
+	 * This function deactivated the numbers button when it is not needed. 
+	 */
 	public void deactivateNumber() {
 		for (int i = 0; i < 10; i++) {
 			but[i].setEnabled(false);
 		}
 	}
+	/*
+	 * Read the string from the display
+	 */
 	public String reader() {
 		
 		String str;
@@ -267,11 +295,17 @@ public class calculatorUI implements ActionListener {
 		return str;
 	}
 
+	/*
+	 * Write the string in the display
+	 */
 	public void writer(String display) {
 		
 			text.setText(display);
 	}
 	
+	/*
+	 * Write the output in the result display
+	 */
 	public void resultShow(final Double num) {
 		if (Double.isNaN(num)) {
 			result.setText("");
