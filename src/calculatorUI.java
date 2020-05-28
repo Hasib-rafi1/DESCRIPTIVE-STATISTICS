@@ -28,7 +28,7 @@ public class calculatorUI implements ActionListener {
 	private final JLabel label2;
 	private final JButton but[], butComma, butMean ,butMini, butMax, butMode, butMidian,
 	butLoadTxt, butCancel,butDecimalSeparator,btnMad,butStdDaviation,butLoad;
-	private final Calculator calc;
+	private final Operations calc;
 
 	private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
 			"7", "8", "9"};
@@ -66,7 +66,7 @@ public class calculatorUI implements ActionListener {
 		butStdDaviation = new JButton("σ");
 		butLoad = new JButton("Load From Display");
 		butDecimalSeparator = new JButton(".");
-		calc = new Calculator();
+		calc = new Operations();
 	}
 
 	/*
