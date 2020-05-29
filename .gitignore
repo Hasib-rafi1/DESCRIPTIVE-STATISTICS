@@ -15,5 +15,6 @@ local.properties
 .loadpath
 .factorypath
 .idea
-out/
-*.iml
+DESCRIPTIVE-STATISTICS.iml
+out
+
