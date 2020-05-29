@@ -116,6 +116,10 @@ public class Operations {
      * This function will return the mean absolute deviation value of the list of the random number
      */
     public Double meanAbsoluteDeviation() {
+    	//use this arrayList. the function is returning Xi - mean 
+    	ArrayList<Double> x_minus_mean = getXValueMinusMean();
+    	//check the standardDeviation function may be you can use the concept. 
+    	//Use sqrt(Double num) function for the square root. 
         return randomNumbers.get(0);
     }
 
@@ -123,7 +127,15 @@ public class Operations {
      * This function will return the standard deviation value of the list of the random number
      */
     public Double standardDeviation() {
-        return randomNumbers.get(0);
+    	ArrayList<Double> x_minus_mean = getXValueMinusMean();
+    	Double sum = 0.0;
+    	for (Double double1 : x_minus_mean) {
+			Double squre = double1*double1;
+			sum += squre;
+		}
+    	sum = sum/x_minus_mean.size();
+    	sum = sqrt(sum);
+        return sum;
     }
 
     /**
@@ -141,7 +153,7 @@ public class Operations {
     /**
      * This function will load the data from the text file. Which is String.
      * and it will separate the string by splitting comma (,) convert the string into double
-     * and storing into the "randomNumbers" variable (Arraylist of double)
+     * and storing into the "randomNumbers" variable (ArrayList of double)
      */
     public String loadFromTxt() throws IOException {
         InputStream in = getClass().getResourceAsStream("input.txt");
@@ -164,7 +176,7 @@ public class Operations {
     }
 
     /**
-     * This function will reset the values of the "randomNumbers" variable (Arraylist of double).
+     * This function will reset the values of the "randomNumbers" variable (ArrayList of double).
      * After running this function there will be no values inside the variable
      */
     public String reset() {
@@ -173,6 +185,11 @@ public class Operations {
         return "";
     }
 
+    /**
+     * This function is returning the square root of a value. 
+     * @param number
+     * @return
+     */
     public static double sqrt(double number) {
         double t;
 
@@ -251,6 +268,20 @@ public class Operations {
         for (int i = 0; i < high.size(); i++) {
             list.add(high.get(i));
         }
+
+        return list;
+    }
+    
+    /**
+     * This method is used in mean absolute deviation and standard deviation. it will return the each Xi values after subtracting
+     * @return ArrayList of deviation 
+     */
+    private ArrayList<Double> getXValueMinusMean(){
+    	ArrayList<Double> list = new ArrayList<Double>();
+    	Double mean = arithmeticMean();
+    	for (Double double1 : randomNumbers) {
+			list.add(double1-mean);
+		}
 
         return list;
     }

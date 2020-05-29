@@ -212,7 +212,7 @@ public class calculatorUI implements ActionListener {
 		}
 
 		if (source == butMode) {
-			resultShow(calc.mode());
+			resultShowMode(calc.mode().toString());
 			butComma.setEnabled(true);
 			butDecimalSeparator.setEnabled(true);
 		}
@@ -312,5 +312,13 @@ public class calculatorUI implements ActionListener {
 		} else {
 			result.setText(Double.toString(num));
 		}
+	}
+	
+	/*
+	 * Write the output in the result display
+	 */
+	public void resultShowMode(final String num) {
+	
+			result.setText(num);
 	}
 }
