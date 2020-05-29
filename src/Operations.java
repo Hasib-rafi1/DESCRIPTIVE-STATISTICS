@@ -35,11 +35,20 @@ public class Operations {
         return randomNumbers.get(0);
     }
 
-    /*
+    /**
      * This function will return the arithmetic mean value of the list of the random number
+     * @return am as the arithmetic mean value
      */
     public Double arithmeticMean() {
-        return randomNumbers.get(0);
+    	Double am, sum = 0.0; //initialize arithmetic mean value and sum value
+    	
+        //iterate through the data and calculate the sum
+    	for (Double x : randomNumbers) {
+    		sum += x;
+    	}
+    	
+    	am =  sum/randomNumbers.size(); //calculate the arithmetic mean value
+    	return am;
     }
 
     /*
