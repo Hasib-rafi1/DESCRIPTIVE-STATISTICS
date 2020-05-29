@@ -14,3 +14,6 @@ tmp/
 local.properties
 .loadpath
 .factorypath
+.idea
+DESCRIPTIVE-STATISTICS.iml
+out
