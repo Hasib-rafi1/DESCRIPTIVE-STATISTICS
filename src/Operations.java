@@ -47,43 +47,38 @@ public class Operations {
      * This function will return the mode value from the list of the random number
      * @return The most frequent values in the dataset
      */
-    public Double mode() {
-        //The return type should be an arraylist, in case there are multiple numbers
-        //Need to fix UI implementation
-
-
-//        for(int i = 0; i < randomNumbers.size(); i++){
-//            if(!valueFrequency.containsKey(randomNumbers.get(i))){
-//                valueFrequency.put(randomNumbers.get(i), 1);
-//            }else{
-//                int count = valueFrequency.get(randomNumbers.get(i));
-//                valueFrequency.put(randomNumbers.get(i), count + 1);
-//            }
-//        }
-//
-//        int count = 0;
-//        int maxValue = 0;
-//
-//        ArrayList<Integer> mapValues = new ArrayList<Integer>(valueFrequency.values());
-//
-//        for(int i = 0; i < mapValues.size(); i++){
-//            if (mapValues.get(i) > maxValue){
-//                maxValue = mapValues.get(i);
-//            }
-//        }
-//
-//        for(Map.Entry<Double, Integer> val : valueFrequency.entrySet())
-//        {
-//            if (val.getValue() == maxValue)
-//            {
-//                frequentValues.add(val.getKey());
-//            }
-//        }
-//
-//        System.out.println(frequentValues);
-//       // return frequentValues;
-//
-        return randomNumbers.get(0);
+    public ArrayList<Double> mode() {
+    	
+        //The return type should be an arrayList, in case there are multiple numbers
+    	//TODO Need to fix UI implementation as return type as ArrayList
+    	
+    	Map<Double,Integer> map = new HashMap<>(); 
+    	ArrayList<Double> allMode = new ArrayList<>();
+    	// storing all elements in hashMap (O(n))
+    	for(double key:randomNumbers) {
+    		if(!map.containsKey(key)) {
+    			map.put(key, 1);
+    		}else {
+    			map.put(key, map.get(key)+1);
+    		}	
+    	}
+    	
+    	// getting the maximum Frequency
+    	int maxFreq = 0;
+    	for(int values: map.values()) {
+    		if(maxFreq < values) {
+    			maxFreq = values;
+    		}
+    	}
+    	
+    	// storing all the keys to arrayList having value as maxFreq
+    	for(Double key:map.keySet()) {
+    		if(map.get(key) == maxFreq) {
+    			allMode.add(key);
+    		}
+    	}
+    	
+        return allMode;
     }
 
     /**
