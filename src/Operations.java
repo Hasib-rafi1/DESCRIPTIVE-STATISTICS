@@ -118,9 +118,17 @@ public class Operations {
     public Double meanAbsoluteDeviation() {
     	//use this arrayList. the function is returning Xi - mean 
     	ArrayList<Double> x_minus_mean = getXValueMinusMean();
-    	//check the standardDeviation function may be you can use the concept. 
-    	//Use sqrt(Double num) function for the square root. 
-        return randomNumbers.get(0);
+
+    	Double sum = 0.0;
+    	for(Double d : x_minus_mean){
+    	    if(d < 0){
+    	        d = d * -1;
+            }
+            sum = sum + d;
+        }
+
+        Double mad = sum / x_minus_mean.size();
+        return mad;
     }
 
     /**
