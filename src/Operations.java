@@ -85,15 +85,17 @@ public class Operations {
      * This function will return the median value from the list of the random number
      * @return
      */
-    public Double median() {
-//        if(sortedDataSet.size() % 2 == 0){
-//
-//            // To implement if dataset is even - Arithmetic Mean
-//
-//        }else{
-//            return sortedDataSet.get(sortedDataSet.size()/2);
-//        }
-        return randomNumbers.get(0);
+    public double median() {
+        double median;
+        if(sortedDataSet.size() % 2 == 0){
+
+            // To implement if dataset is even - Arithmetic Mean
+            median = ((double) sortedDataSet.get(sortedDataSet.size() / 2) + (double) sortedDataSet.get(sortedDataSet.size() / 2 - 1))/2;
+        }else{
+            median = sortedDataSet.get(sortedDataSet.size()/2);
+        }
+        return median;
+
     }
 
     /**
