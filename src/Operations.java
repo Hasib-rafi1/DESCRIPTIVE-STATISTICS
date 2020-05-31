@@ -11,12 +11,16 @@ import java.util.Random;
 public class Operations {
     private ArrayList<Double> randomNumbers = new ArrayList<>(); // random number storage variable
     private ArrayList<Double> sortedDataSet = new ArrayList<>(); // ascending sorted data set
-    //private Map<Double, Integer> valueFrequency = new HashMap<Double, Integer>(); // stores data set keys and the occurrence of each
-    //private ArrayList<Double> frequentValues = new ArrayList<Double>(); // contains the most frequent values
+    private boolean sorted = false;
 
+    /**
+     * Sorts the data set using the quicksort algorithm
+     */
     public void sortDataSet(){
-        System.out.println("Sorted");
-        sortedDataSet = sort(randomNumbers);
+        if(!sorted) {
+            sortedDataSet = sort(randomNumbers);
+            sorted = true;
+        }
     }
 
 
@@ -25,7 +29,7 @@ public class Operations {
      * @return The minimum value of the dataset
      */
     public Double minimum() {
-            sortDataSet();
+        sortDataSet();
 
         return sortedDataSet.get(0);
     }
@@ -35,7 +39,7 @@ public class Operations {
      * @return The maximum value of the dataset
      */
     public Double maximum() {
-            sortDataSet();
+        sortDataSet();
 
         return sortedDataSet.get(sortedDataSet.size() - 1);
     }
@@ -80,14 +84,12 @@ public class Operations {
 
     /**
      * This function will return the median value from the list of the random number
-     * @return
+     * @return the middle element if the dataset size is odd, the arithmetic mean if the data set size is even
      */
     public double median() {
         double median;
         sortDataSet();
         if(sortedDataSet.size() % 2 == 0){
-
-            // To implement if dataset is even - Arithmetic Mean
             median = ( sortedDataSet.get(sortedDataSet.size() / 2) +  sortedDataSet.get((sortedDataSet.size() / 2) - 1))/2;
         }else{
         	int a = sortedDataSet.size()/2;
@@ -134,6 +136,7 @@ public class Operations {
 
     /**
      * This function will return the standard deviation value of the list of the random number
+     * @return Standard Deviation
      */
     public Double standardDeviation() {
     	ArrayList<Double> x_minus_mean = getXValueMinusMean();
@@ -216,8 +219,8 @@ public class Operations {
 
     /**
      * This function is returning the square root of a value. 
-     * @param number
-     * @return
+     * @param number The number to get the Square root of
+     * @return The Square root of the given parameter
      */
     public static double sqrt(double number) {
         double t;
@@ -234,8 +237,8 @@ public class Operations {
 
     /**
      * This method sorts dataset.
-     * @param input the dataset
-     * @return the sort dataset
+     * @param input The unsorted dataset
+     * @return The sorted dataset
      */
     private ArrayList<Double> sort(ArrayList<Double> input){
 
