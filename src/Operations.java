@@ -6,6 +6,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class Operations {
     private ArrayList<Double> randomNumbers = new ArrayList<>(); // random number storage variable
@@ -24,9 +25,7 @@ public class Operations {
      * @return The minimum value of the dataset
      */
     public Double minimum() {
-        if(sortedDataSet.isEmpty()){
             sortDataSet();
-        }
 
         return sortedDataSet.get(0);
     }
@@ -36,9 +35,7 @@ public class Operations {
      * @return The maximum value of the dataset
      */
     public Double maximum() {
-        if(sortedDataSet.isEmpty()){
             sortDataSet();
-        }
 
         return sortedDataSet.get(sortedDataSet.size() - 1);
     }
@@ -87,14 +84,16 @@ public class Operations {
      */
     public double median() {
         double median;
+        sortDataSet();
         if(sortedDataSet.size() % 2 == 0){
 
             // To implement if dataset is even - Arithmetic Mean
-            median = ((double) sortedDataSet.get(sortedDataSet.size() / 2) + (double) sortedDataSet.get(sortedDataSet.size() / 2 - 1))/2;
+            median = ( sortedDataSet.get(sortedDataSet.size() / 2) +  sortedDataSet.get((sortedDataSet.size() / 2) - 1))/2;
         }else{
-            median = sortedDataSet.get(sortedDataSet.size()/2);
+        	int a = sortedDataSet.size()/2;
+            median = sortedDataSet.get(a);
         }
-        return median;
+        return getRoundValue(median);
 
     }
 
@@ -111,7 +110,7 @@ public class Operations {
     	}
     	
     	am =  sum/randomNumbers.size(); //calculate the arithmetic mean value
-    	return am;
+    	return getRoundValue(am);
     }
 
     /**
@@ -129,9 +128,8 @@ public class Operations {
             }
             sum = sum + d;
         }
-
         Double mad = sum / x_minus_mean.size();
-        return mad;
+        return getRoundValue(mad);
     }
 
     /**
@@ -144,9 +142,11 @@ public class Operations {
 			Double squre = double1*double1;
 			sum += squre;
 		}
+
+    	System.out.println(sum);
     	sum = sum/x_minus_mean.size();
     	sum = sqrt(sum);
-        return sum;
+        return getRoundValue(sum);
     }
 
     /**
@@ -182,6 +182,24 @@ public class Operations {
 
         input.close();
         in.close();
+
+        return fullText;
+    }
+    
+    /**
+     * This function will create 1000 random numbers
+     * @return String value of generated random number 
+     */
+    public String loadFromRandom() {
+
+        String fullText ="";
+        for(int i =0; i<1000; i++) {
+        	Random r = new Random();
+        	double randomValue = 1 + (1000 - 1) * r.nextDouble();
+        	
+        	randomNumbers.add(getRoundValue(randomValue));
+        	fullText = fullText+getRoundValue(randomValue)+",";
+        }
 
         return fullText;
     }
@@ -295,5 +313,16 @@ public class Operations {
 		}
 
         return list;
+    }
+    
+    /**
+     * This method is used to round the floating point
+     * @return Double Rounded number  
+     */
+    private Double getRoundValue(Double val){
+    	int temp = (int) (val*100);
+    	val =  (double) (temp+0.0);
+    	val = val/100;
+        return val;
     }
 }

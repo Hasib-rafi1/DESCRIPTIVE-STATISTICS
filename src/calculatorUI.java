@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class calculatorUI implements ActionListener {
@@ -27,9 +28,9 @@ public class calculatorUI implements ActionListener {
 	private final JLabel label1;
 	private final JLabel label2;
 	private final JButton but[], butComma, butMean ,butMini, butMax, butMode, butMidian,
-	butLoadTxt, butCancel,butDecimalSeparator,btnMad,butStdDaviation,butLoad;
+	butLoadTxt,butLoadRandom, butCancel,butDecimalSeparator,btnMad,butStdDaviation,butLoad;
 	private final Operations calc;
-
+	private final  JScrollPane sp;
 	private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
 			"7", "8", "9"};
 
@@ -43,10 +44,11 @@ public class calculatorUI implements ActionListener {
 		display = new JPanel(new GridLayout(4,0));
 		buttonPanel = new JPanel(new GridLayout(0,2));
 		numberPanel =new JPanel(new GridLayout(0,3));
-		operatorPanel =new JPanel(new GridLayout(4,1));
+		operatorPanel =new JPanel(new GridLayout(5,1));
 		equalPanel = new JPanel(new GridLayout(0,1));
 		sidePanel = new JPanel(new GridLayout(0,2));
 		text = new JTextArea(2, 45);
+		sp = new JScrollPane(text);
 		result = new JTextArea(2, 45);
 		label1 = new JLabel("Finite Random Data");
 		label2 = new JLabel("Output");
@@ -66,6 +68,7 @@ public class calculatorUI implements ActionListener {
 		butStdDaviation = new JButton("σ");
 		butLoad = new JButton("Load From Display");
 		butDecimalSeparator = new JButton(".");
+		butLoadRandom = new JButton("Random Generator");
 		calc = new Operations();
 	}
 
@@ -79,7 +82,7 @@ public class calculatorUI implements ActionListener {
 		frame.add(panel);
 		
 		display.add(label1);
-		display.add(text);
+		display.add(sp);
 		display.add(label2);
 		display.add(result);
 		panel.add(display);
@@ -108,11 +111,12 @@ public class calculatorUI implements ActionListener {
 
 
 		        
-		equalPanel.add(butMean);      
+		operatorPanel.add(butMean);      
 		equalPanel.add(btnMad);
 		equalPanel.add(butStdDaviation);
 		equalPanel.add(butLoad);
 		equalPanel.add(butLoadTxt);
+		equalPanel.add(butLoadRandom);
 		equalPanel.add(butCancel);
 
 		disableBtn();
@@ -128,6 +132,7 @@ public class calculatorUI implements ActionListener {
 		butCancel.addActionListener(this);
 		btnMad.addActionListener(this);
 		butLoad.addActionListener(this);
+		butLoadRandom.addActionListener(this);
 		butStdDaviation.addActionListener(this);
 
 	}
@@ -181,6 +186,7 @@ public class calculatorUI implements ActionListener {
 				butComma.setEnabled(true);
 				butLoadTxt.setEnabled(false);
 				butLoad.setEnabled(true);
+				butLoadRandom.setEnabled(false);
 				return;
 			}
 		}
@@ -200,32 +206,22 @@ public class calculatorUI implements ActionListener {
 		}
 		if (source == butMini) {
 			resultShow(calc.minimum());
-			butComma.setEnabled(true);
-			butDecimalSeparator.setEnabled(true);
 
 		}
 
 		if (source == butMax) {
 			resultShow(calc.maximum());
-			butComma.setEnabled(true);
-			butDecimalSeparator.setEnabled(true);
 		}
 
 		if (source == butMode) {
 			resultShowMode(calc.mode().toString());
-			butComma.setEnabled(true);
-			butDecimalSeparator.setEnabled(true);
 		}
 
 		if (source == butMidian) {
 			resultShow(calc.median());
-			butComma.setEnabled(true);
-			butDecimalSeparator.setEnabled(true);
 		}
 		if (source == butMean) {
 			resultShow(calc.arithmeticMean());
-			butComma.setEnabled(true);
-			butDecimalSeparator.setEnabled(true);
 		}
 
 		if(source == btnMad) {
@@ -242,6 +238,7 @@ public class calculatorUI implements ActionListener {
 			deactivateNumber();
 			butComma.setEnabled(false);
 			butDecimalSeparator.setEnabled(false);
+			butLoadRandom.setEnabled(false);
 			
 			
 		}
@@ -254,18 +251,31 @@ public class calculatorUI implements ActionListener {
 				butLoadTxt.setEnabled(false);
 				butComma.setEnabled(false);
 				butDecimalSeparator.setEnabled(false);
+				butLoadRandom.setEnabled(false);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				JOptionPane.showMessageDialog(frame, "Input File is not found");
 			}
 			
 		}
-
+		
+		if (source == butLoadRandom) {
+			writer(calc.loadFromRandom());
+			activeBtn();
+			deactivateNumber();
+			butLoadTxt.setEnabled(false);
+			butComma.setEnabled(false);
+			butDecimalSeparator.setEnabled(false);
+			butLoadRandom.setEnabled(false);	
+			
+		}
+		
 		if (source == butCancel) {
 			writer(calc.reset());
 			butComma.setEnabled(true);
 			butDecimalSeparator.setEnabled(true);
 			butLoadTxt.setEnabled(true);
+			butLoadRandom.setEnabled(true);
 			disableBtn();
 			initial();
 			for (int i = 0; i < 10; i++) {
