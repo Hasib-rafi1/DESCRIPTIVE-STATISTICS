@@ -1,8 +1,13 @@
+import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class OperationsTest {
+
+    @Before
+    public void setUp(){
+        //This needs to be filled up.
+    }
 
     @Test
     public void sortDataSet() {

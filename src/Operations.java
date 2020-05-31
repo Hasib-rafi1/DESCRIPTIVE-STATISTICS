@@ -308,7 +308,7 @@ public class Operations {
      * This method is used in mean absolute deviation and standard deviation. it will return the each Xi values after subtracting
      * @return ArrayList of deviation 
      */
-    private ArrayList<Double> getXValueMinusMean(){
+    ArrayList<Double> getXValueMinusMean(){
     	ArrayList<Double> list = new ArrayList<Double>();
     	Double mean = arithmeticMean();
     	for (Double double1 : randomNumbers) {
