@@ -114,6 +114,7 @@ public class Operations {
 
     /**
      * This function will return the mean absolute deviation value of the list of the random number
+     * @return mean absolute deviation of the random numbers
      */
     public Double meanAbsoluteDeviation() {
     	//use this arrayList. the function is returning Xi - mean 
