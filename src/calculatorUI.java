@@ -272,6 +272,7 @@ public class calculatorUI implements ActionListener {
 		
 		if (source == butCancel) {
 			writer(calc.reset());
+			resultShow(Double.NaN);
 			butComma.setEnabled(true);
 			butDecimalSeparator.setEnabled(true);
 			butLoadTxt.setEnabled(true);
