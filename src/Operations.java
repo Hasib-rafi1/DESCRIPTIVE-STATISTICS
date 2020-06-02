@@ -91,9 +91,11 @@ public class Operations {
         sortDataSet();
         if(sortedDataSet.size() % 2 == 0){
             median = ( sortedDataSet.get(sortedDataSet.size() / 2) +  sortedDataSet.get((sortedDataSet.size() / 2) - 1))/2;
+           
         }else{
         	int a = sortedDataSet.size()/2;
             median = sortedDataSet.get(a);
+            return median;
         }
         return getRoundValue(median);
 
@@ -146,7 +148,6 @@ public class Operations {
 			sum += squre;
 		}
 
-    	System.out.println(sum);
     	sum = sum/x_minus_mean.size();
     	sum = sqrt(sum);
         return getRoundValue(sum);
@@ -327,5 +328,9 @@ public class Operations {
     	val =  (double) (temp+0.0);
     	val = val/100;
         return val;
+    }
+    
+    public ArrayList<Double> getGeneratedList() {
+    	return randomNumbers;
     }
 }
