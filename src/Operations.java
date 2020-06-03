@@ -11,16 +11,12 @@ import java.util.Random;
 public class Operations {
     private ArrayList<Double> randomNumbers = new ArrayList<>(); // random number storage variable
     private ArrayList<Double> sortedDataSet = new ArrayList<>(); // ascending sorted data set
-    private boolean sorted = false;
 
     /**
      * Sorts the data set using the quicksort algorithm
      */
     public void sortDataSet(){
-        if(!sorted) {
-            sortedDataSet = sort(randomNumbers);
-            sorted = true;
-        }
+        sortedDataSet = sort(randomNumbers);
     }
 
 
