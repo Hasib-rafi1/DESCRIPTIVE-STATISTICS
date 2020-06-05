@@ -7,12 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class OperationsTest {
-
-
 	Operations calc = new Operations();
+
+	/**
+	 * This sets up the testing environment by creating a custom data set.
+	 */
     @Before
     public void setUp(){
-        //This needs to be filled up.
     	String numbers = "12,18,90,10,6,35.5,16.4,120.3,10";
     	calc.loadFromDisplay(numbers);
     }
@@ -79,7 +80,6 @@ public class OperationsTest {
 			ArrayList<Double> a = calc.getGeneratedList();
 			assertEquals(a.size(),1000);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

@@ -153,6 +153,7 @@ public class Operations {
      * This function will load the data from the user input. Which is String.
      * and it will separate the string by splitting comma (,) convert the string into double
      * and storing into the  randomNumbers variable (Arraylist of double)
+     * @param displayTxt The user input
      */
     public void loadFromDisplay(String displayTxt) {
         String[] arrOfStr = displayTxt.split(",");
@@ -165,6 +166,8 @@ public class Operations {
      * This function will load the data from the text file. Which is String.
      * and it will separate the string by splitting comma (,) convert the string into double
      * and storing into the "randomNumbers" variable (ArrayList of double)
+     * @return The values from the text file as a String
+     * @throws IOException If the system fails to read the file
      */
     public String loadFromTxt() throws IOException {
         InputStream in = getClass().getResourceAsStream("input.txt");
@@ -207,6 +210,7 @@ public class Operations {
     /**
      * This function will reset the values of the "randomNumbers" variable (ArrayList of double).
      * After running this function there will be no values inside the variable
+     * @return An empty value to clear the data set
      */
     public String reset() {
         randomNumbers.clear();

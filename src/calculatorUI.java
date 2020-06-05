@@ -34,7 +34,7 @@ public class calculatorUI implements ActionListener {
 	private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
 			"7", "8", "9"};
 
-	/*
+	/**
 	 * This function is Building the UI of the application
 	 */
 	public calculatorUI() {
@@ -72,8 +72,8 @@ public class calculatorUI implements ActionListener {
 		calc = new Operations();
 	}
 
-	/*
-	 * This function is crating the block of the UI and setting them into the place. 
+	/**
+	 * This function is creating the block of the UI and setting them into the place.
 	 */
 	public void init() {
 		frame.setVisible(true);
@@ -137,15 +137,16 @@ public class calculatorUI implements ActionListener {
 
 	}
 	
-	/*
-	 * This function disabled the buttons which are dependent on the different button. 
+	/**
+	 * This function disables the buttons which are dependent on the different button.
 	 */
 	public void initial() {
 		butComma.setEnabled(false);
 		butLoad.setEnabled(false);
 	}
-	/*
-	 * This function activated disable buttons based on different conditions from diffrent places 
+
+	/**
+	 * This function activates disable buttons based on different conditions from different places
 	 */
 	public void activeBtn() {
 		btnMad.setEnabled(true);
@@ -157,8 +158,8 @@ public class calculatorUI implements ActionListener {
 		butMidian.setEnabled(true);
 	}
 
-	/*
-	 * This function disabled the activated buttons based on different conditions from diffrent places 
+	/**
+	 * This function disables the activated buttons based on different conditions from different places
 	 */
 	public void disableBtn() {
 		btnMad.setEnabled(false);
@@ -170,10 +171,9 @@ public class calculatorUI implements ActionListener {
 		butMidian.setEnabled(false);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * This function is handling the events of the buttons and text area.
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 * This function is handling the events of the buttons and text area. 
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -287,7 +287,7 @@ public class calculatorUI implements ActionListener {
 		text.selectAll();
 	}
 
-	/*
+	/**
 	 * This function deactivated the numbers button when it is not needed. 
 	 */
 	public void deactivateNumber() {
@@ -295,8 +295,10 @@ public class calculatorUI implements ActionListener {
 			but[i].setEnabled(false);
 		}
 	}
-	/*
+
+	/**
 	 * Read the string from the display
+	 * @return returns the string from the display
 	 */
 	public String reader() {
 		
@@ -306,16 +308,18 @@ public class calculatorUI implements ActionListener {
 		return str;
 	}
 
-	/*
+	/**
 	 * Write the string in the display
+	 * @param display The text presented on the Display
 	 */
 	public void writer(String display) {
 		
 			text.setText(display);
 	}
-	
-	/*
-	 * Write the output in the result display
+
+	/**
+	 * Write the output in the result section
+	 * @param num The operation result to be displayed
 	 */
 	public void resultShow(final Double num) {
 		if (Double.isNaN(num)) {
@@ -324,9 +328,10 @@ public class calculatorUI implements ActionListener {
 			result.setText(Double.toString(num));
 		}
 	}
-	
-	/*
-	 * Write the output in the result display
+
+	/**
+	 * Write the mode output in the result section
+	 * @param num The string containing the mode value(s)
 	 */
 	public void resultShowMode(final String num) {
 	
