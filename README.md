@@ -11,3 +11,7 @@ Using  the  Java  programming  language,  implement  DESCRIPTIVE-STATISTICS  fro
 The purpose of descriptive statistics is to quantitatively describe a collection of data. Let x  be  a  random  variable  that  can  take  values  from  a  finite  data  set  x1, x2, x3,  ...,  xn, with each value having the same probability. The minimum,  m,  is  the  smallest  of  the  values  in  the  given  data  set.  (m  need  not  be  unique.) The maximum,  M,  is  the  largest  of  the  values  in  the  given  data  set.  (M  need  not  be  unique.) The mode, o, is the value that appears most frequently in the given data set. (o need not be unique.) The median, d, is the middle number if n is odd, and is the arithmetic mean of the two middle numbers if n is even.The arithmetic mean, μ,The mean absolute deviation, MAD, The standard deviation, σ,
 
 Let  there  be  a  system,  called  DESCRIPTIVE-STATISTICS,  for  finding  m,  M,  o,  d,  μ, MAD, and σ. The system should take as input a random number of data values and output its descriptive statistics.
+
+
+## Runnable File
+There is a jar file. which can be runnable by double clicking it. If the environment support Java and JVM.  The file is available  in the parent folder called "DESCRIPTIVE-STATISTICS.jar".  
