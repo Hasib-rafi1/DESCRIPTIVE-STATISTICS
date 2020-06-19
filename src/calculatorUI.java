@@ -57,15 +57,15 @@ public class calculatorUI implements ActionListener {
 			but[i] = new JButton(String.valueOf(i));
 		}
 		butComma = new JButton(",");
-		butMean = new JButton("μ");
-		butMini = new JButton("m");
-		butMax = new JButton("M");
-		butMode = new JButton("o");
-		butMidian = new JButton("d");
+		butMean = new JButton("Arithmetic Mean (μ)");
+		butMini = new JButton("Minimum");
+		butMax = new JButton("Maximum");
+		butMode = new JButton("Mode");
+		butMidian = new JButton("Median");
 		butLoadTxt = new JButton("Load From Text");
-		btnMad = new JButton("MAD");
-		butCancel = new JButton("C");
-		butStdDaviation = new JButton("σ");
+		btnMad = new JButton("Mean Absolute Deviation");
+		butCancel = new JButton("Clear");
+		butStdDaviation = new JButton("Standard Deviation (σ)");
 		butLoad = new JButton("Load From Display");
 		butDecimalSeparator = new JButton(".");
 		butLoadRandom = new JButton("Random Generator");
