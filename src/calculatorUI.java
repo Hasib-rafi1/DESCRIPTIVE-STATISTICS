@@ -50,7 +50,7 @@ public class calculatorUI implements ActionListener {
 		text = new JTextArea(2, 45);
 		sp = new JScrollPane(text);
 		result = new JTextArea(2, 45);
-		label1 = new JLabel("Finite Random Data");
+		label1 = new JLabel("Finite Random Data   (Comma Separated Numbers)");
 		label2 = new JLabel("Output");
 		but = new JButton[10];
 		for (int i = 0; i < 10; i++) {
@@ -62,7 +62,7 @@ public class calculatorUI implements ActionListener {
 		butMax = new JButton("Maximum");
 		butMode = new JButton("Mode");
 		butMidian = new JButton("Median");
-		butLoadTxt = new JButton("Load From Text");
+		butLoadTxt = new JButton("Load From Text (Comma Separated Numbers)");
 		btnMad = new JButton("Mean Absolute Deviation");
 		butCancel = new JButton("Clear");
 		butStdDaviation = new JButton("Standard Deviation (σ)");
@@ -77,7 +77,7 @@ public class calculatorUI implements ActionListener {
 	 */
 	public void init() {
 		frame.setVisible(true);
-		frame.setSize(1000, 1000);
+		frame.setSize(1200, 1000);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
 		
