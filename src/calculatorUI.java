@@ -38,6 +38,7 @@ public class calculatorUI implements ActionListener {
 	 * This function is Building the UI of the application
 	 */
 	public calculatorUI() {
+		int acc = 0;
 		frame = new JFrame("DESCRIPTIVE-STATISTICS");
 		frame.setResizable(false);
 		panel = new JPanel(new GridLayout(2,0));
